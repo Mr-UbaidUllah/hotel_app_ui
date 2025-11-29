@@ -27,12 +27,7 @@ class _MyBottomNavState extends State<MyBottomNav> {
     'assets/images/more.png',
   ];
 
-  final List<String> labels = [
-    "Home",
-    'Services',
-    'Booking',
-    "More"
-  ];
+  final List<String> labels = ["Home", 'Services', 'Booking', "More"];
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +37,7 @@ class _MyBottomNavState extends State<MyBottomNav> {
         children: pages,
       ),
       bottomNavigationBar: Padding(
-        padding: const EdgeInsets.only(bottom: 5),
+        padding: const EdgeInsets.only(bottom: 5, left: 20, right: 20),
         child: Container(
           height: 70,
           width: double.infinity,
@@ -65,26 +60,27 @@ class _MyBottomNavState extends State<MyBottomNav> {
                       children: [
                         Image.asset(
                           iconsPath[index],
-                          width: currentIndex == index ? 30 : 26,
-                          height: currentIndex == index ? 30 : 26,
+                          width: currentIndex == index ? 33 : 26,
+                          height: currentIndex == index ? 33 : 26,
                           color: currentIndex == index
-                              ? const Color(0xFF000000)
-                              : const Color(0xFFFFFFFF),
+                              ? const Color(0xFFFFFFFF)
+                              : const Color(0xFF000000),
                         ),
                         Text(
                           labels[index],
                           style: TextStyle(
                             color: currentIndex == index
-                                ? const Color(0xFF000000)
-                                : const Color(0xFFFFFFFF),
-                            fontSize: 12,
-                            fontWeight: FontWeight.w500,
+                                ? const Color(0xFFFFFFFF)
+                                : const Color(0xFF000000),
+                            fontSize: currentIndex == index ?14 : 10,
+                            fontWeight: currentIndex == index
+                                ? FontWeight.bold
+                                : FontWeight.normal,
                           ),
                         ),
                       ],
                     ),
                   ),
-
                 ],
               );
             }),
